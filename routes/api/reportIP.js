@@ -11,10 +11,10 @@ const IP_DATA_FILE = process.env.IP_DATA_FILE;
 
 export default router.post("/", (req, res) => {
 	try {
-		let data = JSON.parse(JSON.stringify(req.body));
-		if (data && data.IP && data.client && !isNaN(data.client)) {
+		const data = JSON.parse(JSON.stringify(req.body));
+		if (data && data.IP && (data.client || data.client === 0) && !isNaN(data.client)) {
 			data.date = moment().format();
-			let writeStream = fs.createWriteStream(`${DATA_DIR}/${IP_DATA_FILE}`, { flags: "a" });
+			const writeStream = fs.createWriteStream(`${DATA_DIR}/${IP_DATA_FILE}`, { flags: "a" });
 			writeStream.write(`${JSON.stringify(data)}${os.EOL}`);
 			return res.json({ statusCode: 200, statusMsg: "Ok" });
 		} else {

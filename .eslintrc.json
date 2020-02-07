@@ -1,0 +1,47 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": ["standard"],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"quotes": "off",
+		"semi": "off",
+		"indent": "off",
+		"no-tabs": "off",
+		"spaced-comment": "off",
+		"space-before-function-paren": "off",
+		"curly": "off",
+		"object-curly-spacing": "off",
+		"lines-between-class-members": "off"
+	},
+	"settings": {
+		"import/extensions": [".js", ".jsx"],
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx"]
+			},
+			"alias": [["components", "./components"]],
+			"webpack": {
+				"config": {
+					"resolve": {
+						"extensions": [".js", ".jsx"]
+					}
+				}
+			}
+		}
+	}
+}

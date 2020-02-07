@@ -1,0 +1,17 @@
+// Your variable overrides can go here, e.g.:
+// $h1-font-size: 3rem;
+
+@import "./bootswatch/theme/Simplex/variables.scss";
+@import "./bootstrap4.4.1/bootstrap.scss";
+@import "./bootswatch/theme/Simplex/bootswatch.scss";
+
+.wptah-section {
+	margin-top: 4rem;
+}
+.fakeLink {
+	cursor: pointer;
+}
+
+.table {
+	font-size: 0.75rem;
+}
