@@ -9,6 +9,8 @@ import apiKeyChecker from "./middleware/apiKeyChecker";
 //Routes
 import reportIP from "./routes/api/reportIP";
 import getIPs from "./routes/api/getIPs";
+import getServerIP from "./routes/api/getServerIP";
+import getServerIPCurl from "./routes/api/getServerIPCurl";
 
 const server = express();
 const router = express.Router();
@@ -58,6 +60,8 @@ server.get("/", (req, res) => {
 //Routes
 router.use("/api/reportIP", reportIP);
 router.use("/api/getIPs", getIPs);
+router.use("/api/getServerIP", getServerIP);
+router.use("/api/getServerIPCurl", getServerIPCurl);
 
 server.use(router);
 

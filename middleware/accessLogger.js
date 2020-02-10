@@ -11,7 +11,7 @@ const accessLogger = (req, res, next) => {
 	const logString = `${req.ip} ${req.method} ${req.originalUrl} ${req.get("User-Agent")}`;
 	consoleLogger(logString);
 	try {
-		let writeStream = fs.createWriteStream(`${LOGS_DIR}/${ACCESS_LOG_FILE}`, { flags: "a" });
+		const writeStream = fs.createWriteStream(`${LOGS_DIR}/${ACCESS_LOG_FILE}`, { flags: "a" });
 		writeStream.write(`${moment().format()} ${logString}${os.EOL}`);
 	} catch (writeError) {
 		consoleLogger(`accessLogger access log write error: ${writeError}`);
