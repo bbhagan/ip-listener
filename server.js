@@ -14,7 +14,7 @@ import getServerIPCurl from "./routes/api/getServerIPCurl";
 
 const server = express();
 const router = express.Router();
-const PORT = parseInt(process.env.NODE_PORT);
+const EXPRESS_PORT = parseInt(process.env.EXPRESS_PORT);
 const LOGS_DIR = process.env.LOGS_DIR;
 const DATA_DIR = process.env.DATA_DIR;
 
@@ -65,7 +65,7 @@ router.use("/api/getServerIPCurl", getServerIPCurl);
 
 server.use(router);
 
-server.listen(PORT, err => {
+server.listen(EXPRESS_PORT, err => {
 	if (err) throw err;
-	consoleLogger(`Ready on http://localhost:${PORT}`);
+	consoleLogger(`Ready on http://localhost:${EXPRESS_PORT}`);
 });

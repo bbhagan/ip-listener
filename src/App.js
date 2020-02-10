@@ -11,8 +11,12 @@ export default class App extends React.Component {
 	}
 
 	getIPData = async () => {
-		const fetchOptions = { headers: { Authorization: "8675309" } };
-		const response = await fetch("http://localhost:3000/api/getIPs/", fetchOptions);
+		const REACT_APP_HOST = process.env.REACT_APP_HOST;
+		const REACT_APP_PORT = process.env.REACT_APP_PORT;
+		const resolvedPort = REACT_APP_PORT === "80" ? "" : `:${REACT_APP_PORT}`;
+		const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+		const fetchOptions = { headers: { Authorization: `${REACT_APP_API_KEY}` } };
+		const response = await fetch(`http://${REACT_APP_HOST}${resolvedPort}/api/getIPs/`, fetchOptions);
 		const ipJSON = await response.json();
 
 		let lastValidClientId;
@@ -66,7 +70,7 @@ export default class App extends React.Component {
 			} ago) `;
 		};
 		return (
-			<div className="something">
+			<div className="wrapper">
 				<div className="navbar navbar-expand-lg navbar-dark bg-dark">
 					<div className="container">
 						<a href="../" className="navbar-brand">
