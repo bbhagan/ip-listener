@@ -51,12 +51,6 @@ server.use(apiKeyChecker);
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-/*
-server.get("/", (req, res) => {
-	res.send(`<h1>Nope.</h1>`);
-});
-*/
-
 //Routes
 router.use("/api/reportIP", reportIP);
 router.use("/api/getIPs", getIPs);

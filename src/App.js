@@ -62,7 +62,7 @@ export default class App extends React.Component {
 		const now = new Date();
 		const getDateString = date => {
 			const minAgo = Math.round((now.getTime() - date.getTime()) / 60000);
-			return `${date.getMonth()}-${date.getDate()}-${date
+			return `${date.getMonth() + 1}-${date.getDate()}-${date
 				.getFullYear()
 				.toString()
 				.substring(2, 4)} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} (${minAgo} minute${
