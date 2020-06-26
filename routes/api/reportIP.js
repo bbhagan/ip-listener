@@ -16,6 +16,7 @@ export default router.post("/", (req, res) => {
 			data.date = moment().format();
 			const writeStream = fs.createWriteStream(`${DATA_DIR}/${IP_DATA_FILE}`, { flags: "a" });
 			writeStream.write(`${JSON.stringify(data)}${os.EOL}`);
+			writeStream.end();
 			return res.json({ statusCode: 200, statusMsg: "Ok" });
 		} else {
 			errorLogger(`reportIP.post ${req.ip} BAD DATA ${JSON.stringify(data)}`);

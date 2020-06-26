@@ -13,6 +13,7 @@ const accessLogger = (req, res, next) => {
 	try {
 		const writeStream = fs.createWriteStream(`${LOGS_DIR}/${ACCESS_LOG_FILE}`, { flags: "a" });
 		writeStream.write(`${moment().format()} ${logString}${os.EOL}`);
+		writeStream.end();
 	} catch (writeError) {
 		consoleLogger(`accessLogger access log write error: ${writeError}`);
 		errorLogger(`accessLogger access log write error: ${writeError}`);
