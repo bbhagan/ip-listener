@@ -59,7 +59,7 @@ router.use("/api/getServerIPCurl", getServerIPCurl);
 
 server.use(router);
 
-server.listen(EXPRESS_PORT, err => {
+server.listen(EXPRESS_PORT, (err) => {
 	if (err) throw err;
 	consoleLogger(`Ready on http://localhost:${EXPRESS_PORT}`);
 });

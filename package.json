@@ -4,10 +4,10 @@
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.11.0",
-		"@testing-library/react": "^10.4.3",
+		"@testing-library/react": "^10.4.5",
 		"@testing-library/user-event": "^12.0.11",
 		"dotenv": "^8.2.0",
-		"dotenv-webpack": "^1.8.0",
+		"dotenv-webpack": "^2.0.0",
 		"esm": "^3.2.25",
 		"express": "^4.17.1",
 		"moment": "^2.27.0",
@@ -17,7 +17,8 @@
 		"react-scripts": "3.4.1"
 	},
 	"scripts": {
-		"start-express": "nodemon -r esm server.js",
+		"dev": "nodemon -r esm -r dotenv/config server.js",
+		"prod": "node -r esm -r dotenv/config server.js",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -40,13 +41,13 @@
 		]
 	},
 	"devDependencies": {
-		"@babel/core": "^7.10.3",
+		"@babel/core": "^7.10.4",
 		"babel-eslint": "^10.1.0",
 		"eslint-config-standard": "^14.1.1",
-		"eslint-plugin-import": "^2.21.2",
+		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^4.2.1",
-		"eslint-plugin-react": "^7.20.0",
+		"eslint-plugin-react": "^7.20.3",
 		"eslint-plugin-standard": "^4.0.1",
 		"nodemon": "^2.0.4"
 	}

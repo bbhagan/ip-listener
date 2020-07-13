@@ -2,7 +2,6 @@ import { Router as _Router } from "express";
 import getIPData from "../../helpers/getIPData";
 import { errorLogger } from "../../util/errorLogger";
 
-require("dotenv").config();
 const router = _Router();
 
 const GET_IPS_RETURN_LIMIT = parseInt(process.env.GET_IPS_RETURN_LIMIT);
