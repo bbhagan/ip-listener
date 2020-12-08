@@ -1,6 +1,7 @@
 import express from "express";
-import fs from "fs";
+
 import { consoleLogger } from "./util/consoleLogger";
+import dirFileSanity from "./util/dirFileSanity";
 
 //Middleware
 import accessLogger from "./middleware/accessLogger";
@@ -15,32 +16,9 @@ import getServerIPCurl from "./routes/api/getServerIPCurl";
 const server = express();
 const router = express.Router();
 const EXPRESS_PORT = parseInt(process.env.EXPRESS_PORT);
-const LOGS_DIR = process.env.LOGS_DIR;
-const DATA_DIR = process.env.DATA_DIR;
 
-//Make sure logs & data dir exists
-try {
-	fs.statSync(LOGS_DIR).isDirectory();
-} catch (e) {
-	try {
-		fs.mkdir(LOGS_DIR, () => {
-			consoleLogger(`Made logs dir: ${LOGS_DIR}`);
-		});
-	} catch (createDirError) {
-		consoleLogger(`server.js cannot create logs dir ${createDirError}`);
-	}
-}
-try {
-	fs.statSync(DATA_DIR).isDirectory();
-} catch (e) {
-	try {
-		fs.mkdir(DATA_DIR, () => {
-			consoleLogger(`Made data dir: ${DATA_DIR}`);
-		});
-	} catch (createDirError) {
-		consoleLogger(`server.js cannot create data dir ${createDirError}`);
-	}
-}
+//Init the file system
+dirFileSanity();
 
 // Access Logger middleware
 server.use(accessLogger);
