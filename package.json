@@ -19,7 +19,7 @@
 		"dev": "npm-run-all --parallel dev_express dev_react",
 		"dev_express": "nodemon -r esm -r dotenv/config server.js",
 		"dev_react": "react-scripts start",
-		"prod": "node -r esm -r dotenv/config server.js",
+		"prod": "/usr/bin/node -r esm -r dotenv/config server.js",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
